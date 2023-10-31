@@ -80,13 +80,59 @@ print(updated_words)
 # которое читается одинаково слева направо и справа налево. Используйте функцию filter и сравнение строк.
 
 def palindrom(words: list) -> list:
-    s = str(words).split()
     new_list = []
-    for w in s:
-        if w == reverse(w):
+    for w in words:
+        if w == reversed(w):
             new_list.append(w)
     return new_list
 
 words = ['кот', 'тик', 'шалаш', 'пикник']
 pal_words = list(filter(palindrom(words), words))
 print(pal_words)
+
+#10 Напишите код, который принимает список слов и возвращает новый список, отсортированный по возрастанию количества
+# гласных букв в словах. Используйте функцию sorted и ключ сортировки.
+
+words = ['кот', 'тик', 'шалаш', 'пикник', 'муниципалитет', 'авария']
+new_words = list(sorted(words, key=lambda x: sum(map(x.count,'аеёиоуыэюя'))))
+print(new_words)
+
+#11 Напишите код, который принимает список строк и возвращает новый список, содержащий эти же строки
+# в верхнем регистре. Используйте функцию map и встроенный метод строк upper.
+
+words = ['Лот', 'тик', 'шалаш', 'пикник']
+updated_words = list(map(lambda x: x.upper(), words))
+print(updated_words)
+
+#12 Напишите код, который принимает список строк и возвращает новый список, содержащий эти же строки
+# с добавленным префиксом “Hello”. Используйте функцию map и конкатенацию строк.
+
+words = ['Лот', 'тик', 'шалаш', 'пикник']
+new_words = list(map(lambda x: "Hello"+ x, words))
+print(new_words)
+
+#13 Напишите код, который принимает список слов и возвращает новый список, отсортированный по возрастанию количества
+# букв “a” в словах. Используйте функцию sorted и ключ сортировки.
+
+words = ['баг', 'тик', 'шалаш', 'каравай']
+new_words = list(sorted(words, key=lambda x:sum(map(x.count,'а'))))
+print(new_words)
+
+#14 Напишите код, который принимает список слов и возвращает новый список, отсортированный по возрастанию
+# количества уникальных букв в словах. Используйте функцию sorted и ключ сортировки.
+
+words = ['баг', 'шалаш', 'каравайрр', 'молоток', 'киш', 'индульгенция']
+new_words = list(sorted(words, key=lambda x: sum(map(x.count,(set(x))))))
+print(new_words)
+
+#15 Напишите декоратор retry_five, который повторяет вызов декорируемой функции 5 раз
+
+def root(x):
+    return x*2
+print(root('nfvjdb'))
+
+def root_decor(notification_text: str, **kwargs):
+    return root(x)*5
+
+x = 'nvjfbnjofnboj'
+print(root_decor(x))
